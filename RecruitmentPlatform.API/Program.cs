@@ -21,6 +21,7 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// test
 // ---------- Identity ----------
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
