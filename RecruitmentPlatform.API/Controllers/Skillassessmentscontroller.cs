@@ -11,6 +11,10 @@ namespace RecruitmentPlatform.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
+    /// <summary>
+/// Manages candidate skill self-assessments and proficiency scores, allowing candidates 
+/// to track their skill profile and recruiters/staff to evaluate candidate capabilities during application reviews.
+/// </summary>
     public class SkillAssessmentsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

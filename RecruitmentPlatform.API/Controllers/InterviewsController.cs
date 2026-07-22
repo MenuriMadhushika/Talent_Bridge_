@@ -14,6 +14,10 @@ namespace RecruitmentPlatform.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
+    /// <summary>
+/// Manages interview scheduling, status updates, feedback recording, and candidate notifications.
+/// Automatically transitions application stages and generates Google/Outlook calendar integration links.
+/// </summary>
     public class InterviewsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

@@ -13,6 +13,10 @@ namespace RecruitmentPlatform.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
+    /// <summary>
+/// Manages two-way application communication threads between job candidates 
+/// and recruitment staff, including automated in-app notifications for incoming messages.
+/// </summary>
     public class MessagesController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

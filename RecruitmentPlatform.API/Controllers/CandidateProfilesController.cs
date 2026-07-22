@@ -13,6 +13,10 @@ namespace RecruitmentPlatform.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
+    /// <summary>
+/// Manages candidate profiles, resume management, candidate discovery for recruiters, 
+/// and data privacy compliance features (GDPR/CCPA export and account anonymization).
+/// </summary>
     public class CandidateProfilesController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
