@@ -71,6 +71,9 @@ namespace RecruitmentPlatform.API.Controllers
 // test admin fuction
 //
         /// <summary>Admin: activate or deactivate a user account (e.g. offboarding a recruiter).</summary>
+        /// <summary>
+/// Admin: Toggle account active status to enable or disable user platform access.
+/// </summary>
         [HttpPut("users/{id}/toggle-active")]
         public async Task<IActionResult> ToggleActive(string id)
         {
