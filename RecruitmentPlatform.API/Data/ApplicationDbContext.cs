@@ -1,3 +1,13 @@
+/*
+ * ApplicationDbContext.cs
+ * -----------------------
+ * Main EF Core Database Context for the Recruitment Platform.
+ * 
+ * - Inherits from IdentityDbContext to manage core authentication (AspNetUsers, AspNetRoles, etc.).
+ * - Defines DbSets for all application domain entities (Organizations, Profiles, Jobs, Applications, etc.).
+ * - Configures Fluent API entity mappings, unique indexes, decimal precision, and cascading delete behaviors in OnModelCreating.
+ */
+
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RecruitmentPlatform.API.Models.Entities;
