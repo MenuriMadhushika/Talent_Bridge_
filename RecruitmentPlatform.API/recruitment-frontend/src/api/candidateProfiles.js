@@ -1,4 +1,5 @@
 import { api } from "./client";
+// Converts an object of parameters into a URL query string.
 
 function toQuery(params) {
     const q = Object.entries(params)
