@@ -1,4 +1,13 @@
-﻿using System;
+/*
+ * 20260721043612_AddMatchExplanation.cs
+ * --------------------------------------
+ * EF Core Database Migration script for adding system messaging, audit logs, and notifications.
+ * 
+ * - Up(): Creates ApplicationMessages, AuditLogs, and Notifications tables along with foreign keys and indexes.
+ * - Down(): Drops the ApplicationMessages, AuditLogs, and Notifications tables upon rollback.
+ */
+
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
