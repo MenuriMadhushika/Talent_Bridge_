@@ -1,3 +1,4 @@
+// Imports the shared API client used to communicate with the backend.
 import { api } from "./client";
 
 export const evaluationsApi = {
