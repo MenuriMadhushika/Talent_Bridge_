@@ -12,6 +12,11 @@ namespace RecruitmentPlatform.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
+    /// <summary>
+/// Manages candidate job applications across their lifecycle.
+/// Supports candidate submission/withdrawal and recruiter/hiring manager review pipelines, 
+/// candidate-job match scoring, and automated candidate notifications.
+/// </summary>
     public class ApplicationsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
