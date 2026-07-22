@@ -10,6 +10,10 @@ namespace RecruitmentPlatform.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
+    /// <summary>
+/// Manages user in-app notifications, including listing recent alerts,
+/// tracking unread counts for UI notification badges, and marking items as read.
+/// </summary>
     public class NotificationsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
