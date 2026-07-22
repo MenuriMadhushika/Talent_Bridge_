@@ -1,6 +1,7 @@
 import { api } from "./client";
 
 export const applicationsApi = {
+  // Creates a new job application.
   create: (dto) => api.post("/applications", dto),
   getMine: () => api.get("/applications/me"),
   getById: (id) => api.get(`/applications/${id}`),
