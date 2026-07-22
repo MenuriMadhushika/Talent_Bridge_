@@ -1,0 +1,49 @@
+:root {
+    /* ---------- Color: surfaces & text ---------- */
+    --paper: #faf8f3;
+    --ink: #1f2a22;
+    --muted: #5c6b60;
+    --surface: #ffffff;
+    --surface-sunken: #f2f0ea;
+    --line: #e4e1d8;
+    --line-strong: #cfccc0;
+
+    /* ---------- Color: brand ---------- */
+    --primary: #4f9d69;
+    --primary-dark: #3d7d52;
+    --primary-tint: rgba(79, 157, 105, 0.14);
+
+    --accent: #c9a227;
+    --accent-tint: rgba(201, 162, 39, 0.16);
+
+    --danger: #c83c3c;
+    --danger-tint: rgba(200, 60, 60, 0.1);
+
+    --info: #3b6fa0;
+    --info-tint: rgba(59, 111, 160, 0.12);
+
+    /* ---------- Typography ---------- */
+    --font-display: Georgia, "Times New Roman", serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --text-xs: 11px;
+    --text-sm: 13px;
+    --text-base: 14px;
+    --text-lg: 16px;
+    --text-2xl: 22px;
+    --text-3xl: 28px;
+
+    /* ---------- Shape ---------- */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-full: 999px;
+
+    /* ---------- Elevation ---------- */
+    --shadow-card: 0 1px 2px rgba(23, 33, 29, 0.06), 0 1px 3px rgba(23, 33, 29, 0.08);
+    --shadow-pop: 0 12px 32px rgba(23, 33, 29, 0.18);
+
+    /* ---------- Layout ---------- */
+    --sidebar-w: 220px;
+}

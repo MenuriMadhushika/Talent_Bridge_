@@ -1,0 +1,494 @@
+{
+  "info": {
+    "name": "Talent Bridge Recruitment Platform API",
+    "description": "Covers auth, candidate/recruiter/hiring-manager/admin workflows end to end. Import alongside the 'Talent Bridge - Local' environment (baseUrl = https://localhost:56846/api).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://localhost:56846/api" },
+    { "key": "candidateToken", "value": "" },
+    { "key": "recruiterToken", "value": "" },
+    { "key": "hiringManagerToken", "value": "" },
+    { "key": "adminToken", "value": "" },
+    { "key": "jobPostingId", "value": "" },
+    { "key": "applicationId", "value": "" },
+    { "key": "candidateProfileId", "value": "" },
+    { "key": "organizationId", "value": "" },
+    { "key": "departmentId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register - Candidate",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.token) pm.collectionVariables.set('candidateToken', json.token);",
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Ada\",\n  \"lastName\": \"Lovelace\",\n  \"email\": \"ada.candidate@example.com\",\n  \"password\": \"Password1\",\n  \"role\": \"Candidate\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/register"
+          }
+        },
+        {
+          "name": "Login - Candidate",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.token) pm.collectionVariables.set('candidateToken', json.token);",
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"ada.candidate@example.com\",\n  \"password\": \"Password1\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/login"
+          }
+        },
+        {
+          "name": "Login - Recruiter",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.token) pm.collectionVariables.set('recruiterToken', json.token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"recruiter@example.com\",\n  \"password\": \"Password1\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/login"
+          }
+        },
+        {
+          "name": "Login - Admin (seeded)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.token) pm.collectionVariables.set('adminToken', json.token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@talentbridge.com\",\n  \"password\": \"Admin@12345\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/login"
+          }
+        },
+        {
+          "name": "Login - Bad credentials (expect 401)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"ada.candidate@example.com\",\n  \"password\": \"WrongPassword\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/login"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Organizations (public + admin)",
+      "item": [
+        {
+          "name": "List organizations",
+          "request": { "method": "GET", "url": "{{baseUrl}}/organizations" }
+        },
+        {
+          "name": "Create organization (Admin)",
+          "event": [
+            {
+              "listen": "test",
+              "script": { "exec": ["const json = pm.response.json();", "if (json.id) pm.collectionVariables.set('organizationId', json.id);"] }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Acme Corp\",\n  \"industry\": \"Software\"\n}" },
+            "url": "{{baseUrl}}/organizations"
+          }
+        },
+        {
+          "name": "Create department (Admin)",
+          "event": [
+            {
+              "listen": "test",
+              "script": { "exec": ["const json = pm.response.json();", "if (json.id) pm.collectionVariables.set('departmentId', json.id);"] }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Engineering\"\n}" },
+            "url": "{{baseUrl}}/organizations/{{organizationId}}/departments"
+          }
+        },
+        {
+          "name": "List departments for organization",
+          "request": { "method": "GET", "url": "{{baseUrl}}/organizations/{{organizationId}}/departments" }
+        }
+      ]
+    },
+    {
+      "name": "Candidate Portal",
+      "item": [
+        {
+          "name": "Get my profile",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": "{{baseUrl}}/candidateprofiles/me"
+          }
+        },
+        {
+          "name": "Update my profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{candidateToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"headline\": \"Senior Backend Engineer\",\n  \"summary\": \"8 years building distributed systems.\",\n  \"location\": \"Remote\",\n  \"yearsOfExperience\": 8,\n  \"skills\": \"C#, SQL, Azure, Docker\",\n  \"education\": \"BSc Computer Science\"\n}"
+            },
+            "url": "{{baseUrl}}/candidateprofiles/me"
+          }
+        },
+        {
+          "name": "Search open job postings",
+          "request": { "method": "GET", "url": "{{baseUrl}}/jobpostings?keyword=" }
+        },
+        {
+          "name": "Get recommended jobs (AI matching)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": "{{baseUrl}}/jobpostings/recommended"
+          }
+        },
+        {
+          "name": "Apply to a job posting",
+          "event": [
+            {
+              "listen": "test",
+              "script": { "exec": ["const json = pm.response.json();", "if (json.id) pm.collectionVariables.set('applicationId', json.id);"] }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{candidateToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobPostingId\": {{jobPostingId}},\n  \"coverLetter\": \"I would love to join the team.\"\n}"
+            },
+            "url": "{{baseUrl}}/applications"
+          }
+        },
+        {
+          "name": "My application tracking dashboard",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": "{{baseUrl}}/applications/me"
+          }
+        },
+        {
+          "name": "My notifications",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": "{{baseUrl}}/notifications/me"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recruiter Portal",
+      "item": [
+        {
+          "name": "Create job posting",
+          "event": [
+            {
+              "listen": "test",
+              "script": { "exec": ["const json = pm.response.json();", "if (json.id) pm.collectionVariables.set('jobPostingId', json.id);"] }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{recruiterToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Senior Backend Engineer\",\n  \"description\": \"Own our core services.\",\n  \"requiredSkills\": \"C#, SQL, Azure\",\n  \"location\": \"Remote\",\n  \"isRemote\": true,\n  \"salaryMin\": 90000,\n  \"salaryMax\": 130000,\n  \"departmentId\": {{departmentId}}\n}"
+            },
+            "url": "{{baseUrl}}/jobpostings"
+          }
+        },
+        {
+          "name": "Review applications for a posting (AI-ranked)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{recruiterToken}}" }],
+            "url": "{{baseUrl}}/applications?jobPostingId={{jobPostingId}}"
+          }
+        },
+        {
+          "name": "Update application status",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{recruiterToken}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"Shortlisted\"\n}" },
+            "url": "{{baseUrl}}/applications/{{applicationId}}/status"
+          }
+        },
+        {
+          "name": "Search candidates",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{recruiterToken}}" }],
+            "url": "{{baseUrl}}/candidateprofiles?keyword=C%23"
+          }
+        },
+        {
+          "name": "Schedule an interview",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{recruiterToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobApplicationId\": {{applicationId}},\n  \"scheduledAt\": \"2026-08-01T14:00:00Z\",\n  \"durationMinutes\": 45,\n  \"location\": \"Google Meet\",\n  \"calendarProvider\": \"Google\"\n}"
+            },
+            "url": "{{baseUrl}}/interviews"
+          }
+        },
+        {
+          "name": "Message an applicant",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{recruiterToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobApplicationId\": {{applicationId}},\n  \"body\": \"Thanks for applying — we'd like to schedule a call.\"\n}"
+            },
+            "url": "{{baseUrl}}/messages"
+          }
+        },
+        {
+          "name": "Close a job posting",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Authorization", "value": "Bearer {{recruiterToken}}" }],
+            "url": "{{baseUrl}}/jobpostings/{{jobPostingId}}/close"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hiring Manager Dashboard",
+      "item": [
+        {
+          "name": "Review queue (Shortlisted applications)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{hiringManagerToken}}" }],
+            "url": "{{baseUrl}}/applications?status=Shortlisted"
+          }
+        },
+        {
+          "name": "Submit candidate evaluation",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{hiringManagerToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobApplicationId\": {{applicationId}},\n  \"technicalScore\": 85,\n  \"communicationScore\": 90,\n  \"cultureFitScore\": 80,\n  \"comments\": \"Strong technical depth, great communicator.\",\n  \"recommended\": true\n}"
+            },
+            "url": "{{baseUrl}}/evaluations"
+          }
+        },
+        {
+          "name": "Move application to Hired",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{hiringManagerToken}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"Hired\"\n}" },
+            "url": "{{baseUrl}}/applications/{{applicationId}}/status"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Administration Portal",
+      "item": [
+        {
+          "name": "List users",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "url": "{{baseUrl}}/admin/users"
+          }
+        },
+        {
+          "name": "Change a user's role",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"role\": \"HiringManager\"\n}" },
+            "url": "{{baseUrl}}/admin/users/REPLACE_WITH_USER_ID/role"
+          }
+        },
+        {
+          "name": "Recruitment analytics",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "url": "{{baseUrl}}/admin/analytics"
+          }
+        },
+        {
+          "name": "Hiring trend analytics (monthly)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "url": "{{baseUrl}}/admin/analytics/trends?months=6"
+          }
+        },
+        {
+          "name": "Audit logs",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "url": "{{baseUrl}}/admin/audit-logs?take=50"
+          }
+        },
+        {
+          "name": "System health",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "url": "{{baseUrl}}/admin/system-health"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Data privacy (self-service)",
+      "item": [
+        {
+          "name": "Export my data",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": "{{baseUrl}}/candidateprofiles/me/export"
+          }
+        },
+        {
+          "name": "Delete my account",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": "{{baseUrl}}/candidateprofiles/me"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Negative / authorization tests",
+      "item": [
+        {
+          "name": "Admin users without token (expect 401)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/admin/users" }
+        },
+        {
+          "name": "Admin users with Candidate token (expect 403)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": "{{baseUrl}}/admin/users"
+          }
+        },
+        {
+          "name": "Create job posting without token (expect 401)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"x\",\n  \"description\": \"x\",\n  \"departmentId\": 1\n}" },
+            "url": "{{baseUrl}}/jobpostings"
+          }
+        }
+      ]
+    }
+  ]
+}

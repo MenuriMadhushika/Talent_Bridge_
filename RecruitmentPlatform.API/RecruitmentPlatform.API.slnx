@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RecruitmentPlatform.API.csproj" />
+  <Project Path="../RecruitmentPlatform.Tests/RecruitmentPlatform.Tests.csproj" />
+</Solution>
