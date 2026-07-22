@@ -9,6 +9,10 @@ namespace RecruitmentPlatform.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    /// <summary>
+/// Manages client organizations and their associated departments, including public 
+/// lookup endpoints for user registration/job creation and administrative creation features.
+/// </summary>
     public class OrganizationsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
