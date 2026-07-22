@@ -1,5 +1,5 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://localhost:56846/api";
-
+// Custom error class used to store both the error message and HTTP status code.
 class ApiError extends Error {
     constructor(message, status) {
         super(message);
