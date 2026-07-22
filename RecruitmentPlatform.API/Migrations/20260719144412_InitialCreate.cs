@@ -1,4 +1,13 @@
-﻿using System;
+/*
+ * InitialCreate.cs
+ * ----------------
+ * EF Core Database Migration script for the initial schema setup.
+ * 
+ * - Up(): Creates ASP.NET Core Identity tables, domain entity tables, indexes, and foreign key constraints.
+ * - Down(): Drops all created tables and constraints during database rollbacks.
+ */
+
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
