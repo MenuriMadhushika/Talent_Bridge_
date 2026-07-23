@@ -20,7 +20,8 @@ namespace RecruitmentPlatform.API.Services
         (string token, DateTime expiresAt) GenerateToken(ApplicationUser user, IList<string> roles);
     }
 
-    // Encapsulates JWT creation so AuthService / controllers don't need to
+    // Encapsulates JWT creation so AuthService /
+    /// controllers don't need to
     // know about claim construction or signing details.
     public class JwtTokenService : ITokenService
     {
