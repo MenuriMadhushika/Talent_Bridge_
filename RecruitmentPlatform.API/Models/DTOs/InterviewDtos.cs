@@ -1,3 +1,13 @@
+/*
+ * InterviewDtos.cs
+ * ----------------
+ * Data Transfer Objects (DTOs) for interview scheduling, management, and calendar integration workflows.
+ * 
+ * - CreateInterviewDto: Input model for scheduling new candidate interviews with optional calendar provider preference.
+ * - UpdateInterviewDto: Input model for updating interview schedules, statuses, feedback, and scores.
+ * - InterviewDto: Read model presenting scheduled interview details along with deep links for Google and Outlook calendars.
+ */
+
 using System.ComponentModel.DataAnnotations;
 using RecruitmentPlatform.API.Models.Entities;
 
