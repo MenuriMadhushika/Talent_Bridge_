@@ -1,3 +1,15 @@
+/*
+ * MiscellaneousDtos.cs
+ * --------------------
+ * Data Transfer Objects (DTOs) for audit logging, notifications, messaging, skill assessments, job updates, and system health checks.
+ * 
+ * - AuditLogDto & NotificationDto: Read models for tracking user actions and delivering system notifications.
+ * - CreateApplicationMessageDto & ApplicationMessageDto: Input and output models for candidate-recruiter application messaging.
+ * - CreateSkillAssessmentDto & SkillAssessmentDto: Models for submitting and reading candidate technical skill evaluations.
+ * - UpdateJobPostingDto: Input model for modifying existing job listing details.
+ * - SystemHealthDto: Response model for admin/monitoring endpoints tracking database connectivity and server metrics.
+ */
+
 using System.ComponentModel.DataAnnotations;
 
 namespace RecruitmentPlatform.API.Models.DTOs
