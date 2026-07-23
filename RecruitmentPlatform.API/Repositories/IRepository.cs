@@ -2,7 +2,8 @@ using System.Linq.Expressions;
 
 namespace RecruitmentPlatform.API.Repositories
 {
-    // Generic repository - hides EF Core / LINQ details behind a simple
+    // Generic repository - hides EF Core /
+    // LINQ details behind a simple
     // contract so controllers/services never talk to DbContext directly.
     public interface IRepository<T> where T : class
     {
@@ -14,7 +15,8 @@ namespace RecruitmentPlatform.API.Repositories
         void Update(T entity);
         void Remove(T entity);
 
-        // Escape hatch for queries that need .Include()/.OrderBy()/paging,
+        // Escape hatch for queries that need .
+        //Include()/.OrderBy()/paging,
         // without leaking the whole DbContext to callers.
         IQueryable<T> Query();
     }
