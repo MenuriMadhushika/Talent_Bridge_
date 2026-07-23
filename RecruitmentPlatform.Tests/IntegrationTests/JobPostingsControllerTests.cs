@@ -2,7 +2,7 @@ using System.Net;
 using System.Net.Http.Json;
 using RecruitmentPlatform.API.Models.DTOs;
 using Xunit;
-
+//jobposting test
 namespace RecruitmentPlatform.Tests.IntegrationTests
 {
     public class JobPostingsControllerTests : IClassFixture<CustomWebApplicationFactory>
