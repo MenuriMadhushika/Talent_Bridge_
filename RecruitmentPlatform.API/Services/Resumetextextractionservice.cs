@@ -7,7 +7,8 @@ using UglyToad.PdfPig;
 namespace RecruitmentPlatform.API.Services
 {
     /// <summary>Extracts plain text from an uploaded resume file so it can be
-    /// fed to the AI resume-parsing service. Previously only .txt uploads
+    /// fed to the AI resume-parsing service. Previously only .
+    ///txt uploads
     /// were parsed; PDF and DOCX resumes (the overwhelming majority in
     /// practice) were stored but never actually read. Unsupported/unreadable
     /// files return null so callers can store the file without a parse

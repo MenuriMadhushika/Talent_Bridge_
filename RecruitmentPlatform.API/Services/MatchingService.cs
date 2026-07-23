@@ -21,6 +21,7 @@ namespace RecruitmentPlatform.API.Services
     // Lightweight, dependency-free skill-overlap matcher. No external
     // dependency, so it also acts as the automatic fallback when the AI
     // provider is unconfigured or unreachable — see AiMatchingService below.
+    //skillmatchingservice
     public class SkillMatchingService : IMatchingService
     {
         public double ComputeMatchScore(string? candidateSkills, string? requiredSkills)
@@ -60,6 +61,7 @@ namespace RecruitmentPlatform.API.Services
     // provider is disabled, unconfigured, unreachable, or returns
     // something that doesn't parse — application submission must never
     // fail just because the AI provider had a bad moment.
+    //Aimatchingservice
     public class AiMatchingService : IMatchingService
     {
         private readonly IAiClient _ai;

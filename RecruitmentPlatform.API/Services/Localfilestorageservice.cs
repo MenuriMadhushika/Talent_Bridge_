@@ -17,6 +17,7 @@ namespace RecruitmentPlatform.API.Services
     // contract (IFileStorageService.SaveAsync -> a URL) that a real
     // S3/Azure Blob implementation would fulfil, making the swap later a
     // one-file change rather than a rewrite of every call site.
+    //localfit
     public class LocalFileStorageService : IFileStorageService
     {
         private readonly string _webRootPath;

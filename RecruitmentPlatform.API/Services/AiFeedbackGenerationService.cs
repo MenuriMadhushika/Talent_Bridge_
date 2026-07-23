@@ -6,6 +6,7 @@ namespace RecruitmentPlatform.API.Services
     /// AI provider as resume parsing/matching. Turns a hiring manager's raw
     /// evaluation notes into a short, professional message a recruiter can
     /// send straight to the candidate.</summary>
+    ///feedbackgeneration
     public interface IFeedbackGenerationService
     {
         Task<string> GenerateCandidateFeedbackAsync(
@@ -42,6 +43,7 @@ namespace RecruitmentPlatform.API.Services
 
             // Never leave a recruiter with nothing to send just because the
             // AI provider is unconfigured or had an outage.
+            //return
             return string.IsNullOrWhiteSpace(raw)
                 ? $"Thank you for applying for the {jobTitle} position. After careful review, " +
                   $"we're updating your application status to: {status}."
