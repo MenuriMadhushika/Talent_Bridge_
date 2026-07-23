@@ -1,3 +1,12 @@
+/*
+ * OrganizationDtos.cs
+ * -------------------
+ * Data Transfer Objects (DTOs) for managing organizations and departments.
+ * 
+ * - CreateOrganizationDto & OrganizationDto: Models for creating new client organizations and viewing their details and summary counts.
+ * - CreateDepartmentDto & DepartmentDto: Models for creating and viewing organizational sub-departments and associated job posting metrics.
+ */
+
 using System.ComponentModel.DataAnnotations;
 
 namespace RecruitmentPlatform.API.Models.DTOs
