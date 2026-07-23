@@ -64,6 +64,7 @@ namespace RecruitmentPlatform.Tests.IntegrationTests
 
             // A profile is created automatically at registration, so this should be 200 —
             // asserting the narrower "not a 401/403" contract keeps the test focused on authZ.
+            //Asset-true
             Assert.True(response.StatusCode is HttpStatusCode.OK or HttpStatusCode.NotFound);
         }
 
