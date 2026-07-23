@@ -9,7 +9,8 @@ using RecruitmentPlatform.API.Models.Entities;
 namespace RecruitmentPlatform.Tests.IntegrationTests
 {
     /// <summary>
-    /// Boots the real ASP.NET Core pipeline (controllers, auth, DI wiring) exactly as
+    /// Boots the real ASP.NET Core pipeline (controllers,
+    //auth, DI wiring) exactly as
     /// Program.cs configures it, but replaces the SQL Server DbContext registration
     /// with an isolated EF Core InMemory database per factory instance, and seeds
     /// the four Identity roles the app expects to already exist.
