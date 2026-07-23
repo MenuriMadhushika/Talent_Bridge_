@@ -6,7 +6,8 @@ namespace RecruitmentPlatform.API.Services
 {
     public interface ISmsSender
     {
-        /// <summary>Send an SMS. Returns false (never throws) on failure so
+        /// <summary>Send an SMS.
+        /// Returns false (never throws) on failure so
         /// callers can treat SMS as best-effort and not block on it.</summary>
         Task<bool> SendAsync(string toPhoneNumber, string message, CancellationToken ct = default);
     }
