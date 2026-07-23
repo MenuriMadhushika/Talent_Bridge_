@@ -33,6 +33,7 @@ namespace RecruitmentPlatform.API.Services
     // interface, SendGrid SMTP relay, Office365, Gmail app passwords, etc.)
     // by pointing SmtpHost/SmtpPort/credentials at it — no code change needed
     // to switch providers.
+    //smtpemailsender
     public class SmtpEmailSender : IEmailSender
     {
         private readonly ILogger<SmtpEmailSender> _logger;
