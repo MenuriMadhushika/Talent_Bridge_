@@ -1,3 +1,13 @@
+/*
+ * AuthDtos.cs
+ * -----------
+ * Data Transfer Objects (DTOs) for user authentication and authorization workflows.
+ * 
+ * - RegisterDto: Input model for user account creation and role assignment.
+ * - LoginDto: Input model for user login credentials verification.
+ * - AuthResponseDto: Response model containing JWT authentication tokens, expiration details, and user profile data.
+ */
+
 using System.ComponentModel.DataAnnotations;
 
 namespace RecruitmentPlatform.API.Models.DTOs

@@ -1,3 +1,12 @@
+/*
+ * EvaluationDtos.cs
+ * -----------------
+ * Data Transfer Objects (DTOs) for candidate evaluation and scoring workflows.
+ * 
+ * - CreateEvaluationDto: Input model for evaluators submitting candidate assessment scores and recommendations.
+ * - EvaluationDto: Read model representing detailed candidate feedback, scores (Technical, Communication, Culture Fit), overall rating, and evaluator details.
+ */
+
 using System.ComponentModel.DataAnnotations;
 
 namespace RecruitmentPlatform.API.Models.DTOs

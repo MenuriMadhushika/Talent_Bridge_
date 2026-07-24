@@ -1,3 +1,13 @@
+/*
+ * ApplicationDtos.cs
+ * ------------------
+ * Data Transfer Objects (DTOs) for managing job application workflows.
+ * 
+ * - CreateApplicationDto: Input model for candidates submitting job applications.
+ * - UpdateApplicationStatusDto: Input model for recruiters/hiring managers updating application progress.
+ * - JobApplicationDto: Read model representing job application details, match scores, and interview counts.
+ */
+
 using System.ComponentModel.DataAnnotations;
 using RecruitmentPlatform.API.Models.Entities;
 

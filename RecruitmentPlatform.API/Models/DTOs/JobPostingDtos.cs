@@ -1,3 +1,12 @@
+/*
+ * JobPostingDtos.cs
+ * -----------------
+ * Data Transfer Objects (DTOs) for creating, managing, and viewing job postings.
+ * 
+ * - CreateJobPostingDto: Input model for recruiters/hiring managers creating new job listings.
+ * - JobPostingDto: Read model representing job listing details, status, departmental context, application count, and AI match scores.
+ */
+
 using System.ComponentModel.DataAnnotations;
 
 namespace RecruitmentPlatform.API.Models.DTOs

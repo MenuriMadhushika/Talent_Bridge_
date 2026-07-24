@@ -1,3 +1,14 @@
+/*
+ * CandidateDtos.cs
+ * ----------------
+ * Data Transfer Objects (DTOs) for candidate profile management, resume handling, and candidate search operations.
+ * 
+ * - UpdateCandidateProfileDto & CandidateProfileDto: Models for viewing and modifying candidate profile information.
+ * - CreateResumeDto & ResumeDto: Metadata models for managing candidate resume uploads and parsed content.
+ * - CandidateSearchQuery: Input filter model for recruiter-facing candidate search functionality.
+ * - CandidateDataExportDto: Structured self-service model for GDPR/data-privacy candidate account data exports.
+ */
+
 using System.ComponentModel.DataAnnotations;
 
 namespace RecruitmentPlatform.API.Models.DTOs

@@ -1,3 +1,12 @@
+/*
+ * AdminDtos.cs
+ * ------------
+ * Data Transfer Objects (DTOs) for system administration and analytics reporting.
+ * 
+ * - AdminUserDto & UpdateUserRoleDto: DTOs for user account management and role modifications.
+ * - RecruitmentAnalyticsDto & HiringTrendsDto: DTOs for dashboard analytics, job pipeline metrics, and hiring trends.
+ */
+
 using System.ComponentModel.DataAnnotations;
 
 namespace RecruitmentPlatform.API.Models.DTOs
