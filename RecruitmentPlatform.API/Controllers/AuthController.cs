@@ -6,6 +6,10 @@ namespace RecruitmentPlatform.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    /// <summary>
+/// Handles user authentication workflows, including new user registration 
+/// across platform roles and identity verification with JWT token issuance.
+/// </summary>
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;

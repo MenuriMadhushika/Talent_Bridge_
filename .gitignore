@@ -88,7 +88,8 @@ StyleCopReport.xml
 *.pgc
 *.pgd
 *.rsp
-# but not Directory.Build.rsp, as it configures directory-level build defaults
+# but not Directory.Build.rsp, 
+//as it configures directory-level build defaults
 !Directory.Build.rsp
 *.sbr
 *.tlb
@@ -150,7 +151,8 @@ _TeamCity*
 .axoCover/*
 !.axoCover/settings.json
 
-# Coverlet is a free, cross platform Code Coverage Tool
+# Coverlet is a free, 
+//cross platform Code Coverage Tool
 coverage*.json
 coverage*.xml
 coverage*.info

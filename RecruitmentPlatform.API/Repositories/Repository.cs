@@ -1,3 +1,4 @@
+//RecritmentPlatform.API
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using RecruitmentPlatform.API.Data;
@@ -34,3 +35,4 @@ namespace RecruitmentPlatform.API.Repositories
         public IQueryable<T> Query() => _dbSet.AsQueryable();
     }
 }
+

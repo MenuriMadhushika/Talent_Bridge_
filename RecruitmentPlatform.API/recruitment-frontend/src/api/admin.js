@@ -1,3 +1,4 @@
+// Provides API methods for admin user management, analytics, audit logs, and system health
 import { api } from "./client";
 
 export const adminApi = {

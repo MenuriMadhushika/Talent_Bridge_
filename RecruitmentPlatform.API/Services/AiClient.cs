@@ -10,6 +10,7 @@ namespace RecruitmentPlatform.API.Services
     /// parsing, candidate matching, and feedback generation all share one
     /// client — callers (AiResumeParsingService, AiMatchingService,
     /// AiFeedbackGenerationService) never change, only this file does.</summary>
+    ///Aiclient
     public interface IAiClient
     {
         /// <summary>Send a single-turn prompt and get back the model's raw text response.
@@ -17,7 +18,7 @@ namespace RecruitmentPlatform.API.Services
         /// instead of throwing and breaking resume upload / application submission.</summary>
         Task<string> CompleteAsync(string systemPrompt, string userPrompt, CancellationToken ct = default);
     }
-
+    ///Aisettings
     public class AiSettings
     {
         public string ApiKey { get; set; } = string.Empty;
@@ -112,3 +113,4 @@ namespace RecruitmentPlatform.API.Services
         }
     }
 }
+

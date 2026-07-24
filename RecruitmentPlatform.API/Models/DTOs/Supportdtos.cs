@@ -1,3 +1,4 @@
+///<<<<<<< feature/database-models
 /*
  * MiscellaneousDtos.cs
  * --------------------
@@ -10,6 +11,9 @@
  * - SystemHealthDto: Response model for admin/monitoring endpoints tracking database connectivity and server metrics.
  */
 
+=======
+///support
+///>>>>>>> master
 using System.ComponentModel.DataAnnotations;
 
 namespace RecruitmentPlatform.API.Models.DTOs
@@ -91,3 +95,7 @@ namespace RecruitmentPlatform.API.Models.DTOs
         public int TotalAuditLogEntries { get; set; }
     }
 }
+///<<<<<<< feature/database-models
+///=======
+
+///>>>>>>> master

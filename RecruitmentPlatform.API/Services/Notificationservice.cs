@@ -11,6 +11,7 @@ namespace RecruitmentPlatform.API.Services
         /// file). This is the trigger point for "Email notifications / SMS
         /// notifications / interview reminders / application status
         /// updates".</summary>
+        ///Task notify
         Task NotifyAsync(string userId, string title, string message);
     }
 
@@ -56,6 +57,7 @@ namespace RecruitmentPlatform.API.Services
             // this prototype sends to any phone number on file. Email is
             // gated on EmailConfirmed since ASP.NET Identity registration
             // already establishes that.
+            ///
             var user = await _userManager.FindByIdAsync(userId);
             if (user is null) return;
 
@@ -85,3 +87,4 @@ namespace RecruitmentPlatform.API.Services
         }
     }
 }
+

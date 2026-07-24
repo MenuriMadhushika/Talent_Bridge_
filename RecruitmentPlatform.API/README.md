@@ -129,3 +129,4 @@ first (it captures tokens into collection variables that the rest of the request
   valid until it naturally expires (there's no server-side session to revoke) — but the
   account is deactivated, so re-authenticating afterward is rejected.
 - All admin actions and self-service deletions are recorded via `IAuditService`.
+

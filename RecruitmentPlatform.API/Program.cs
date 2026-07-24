@@ -21,6 +21,7 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// test
 // ---------- Identity ----------
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
@@ -59,7 +60,8 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-// ---------- Services & Repositories ----------
+//service
+//repository
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<ITokenService, JwtTokenService>();
@@ -78,7 +80,8 @@ builder.Services.AddScoped<IFeedbackGenerationService, AiFeedbackGenerationServi
 builder.Services.AddHttpClient<ISmsSender, TwilioSmsSender>();
 builder.Services.AddScoped<IEmailSender, SmtpEmailSender>();
 
-// ---------- CORS (Critical for Frontend) ----------
+// ---------- CORS  ----------
+//(Critical for Frontend)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>

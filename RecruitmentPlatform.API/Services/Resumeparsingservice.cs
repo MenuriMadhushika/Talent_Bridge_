@@ -20,7 +20,8 @@ namespace RecruitmentPlatform.API.Services
     //
     // Honest limitation: this only works on plain text. Extracting text
     // from PDF/DOCX would need an additional parsing library; this
-    // prototype only auto-parses .txt uploads (or pasted text) and stores
+    // prototype only auto-parses .
+    //txt uploads (or pasted text) and stores
     // other file types as-is without parsing.
     public class KeywordResumeParsingService : IResumeParsingService
     {
@@ -105,3 +106,4 @@ namespace RecruitmentPlatform.API.Services
         }
     }
 }
+

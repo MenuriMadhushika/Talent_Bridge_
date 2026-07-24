@@ -8,6 +8,7 @@ namespace RecruitmentPlatform.API.Services
         /// <summary>Record an auditable action. Does not call SaveChangesAsync
         /// itself — callers batch it with their own unit-of-work commit so a
         /// failed business operation doesn't leave an orphaned audit entry.</summary>
+        //tasklogasync
         Task LogAsync(string userId, string action, string entityType, string? entityId = null, string? details = null);
     }
 
@@ -33,3 +34,4 @@ namespace RecruitmentPlatform.API.Services
         }
     }
 }
+

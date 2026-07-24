@@ -11,6 +11,10 @@ namespace RecruitmentPlatform.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    /// <summary>
+/// Manages job postings lifecycle, candidate job discovery, AI-driven recommendation matching,
+/// and recruiter posting management (create, edit, and close positions).
+/// </summary>
     public class JobPostingsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

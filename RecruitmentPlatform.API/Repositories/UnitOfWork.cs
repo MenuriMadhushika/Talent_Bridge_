@@ -4,7 +4,8 @@ using RecruitmentPlatform.API.Models.Entities;
 namespace RecruitmentPlatform.API.Repositories
 {
     // Unit of Work: exposes one repository per aggregate and a single
-    // SaveChangesAsync so a controller/service can make several repository
+    // SaveChangesAsync so a controller/
+    //service can make several repository
     // calls that commit together as one atomic database transaction.
     public interface IUnitOfWork : IDisposable
     {
@@ -72,3 +73,4 @@ namespace RecruitmentPlatform.API.Repositories
         }
     }
 }
+

@@ -14,6 +14,7 @@ namespace RecruitmentPlatform.API.Services
     // Orchestrates ASP.NET Identity (for credential storage/hashing) with our
     // own domain profiles (CandidateProfile / RecruiterProfile) and the
     // Unit of Work so profile creation is atomic with the Identity user creation.
+    //authservice
     public class AuthService : IAuthService
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -37,6 +38,7 @@ namespace RecruitmentPlatform.API.Services
             // Clients may send the role in any casing (e.g. "candidate"); match it
             // case-insensitively and normalize to the canonical stored casing so the
             // rest of this method and ASP.NET Identity role assignment stay consistent.
+            //role
             var role = AllowedSelfRegisterRoles.FirstOrDefault(r => string.Equals(r, dto.Role, StringComparison.OrdinalIgnoreCase));
             if (role is null)
                 return (false, "Admin accounts cannot be self-registered. Contact a system administrator.", null);
@@ -125,3 +127,4 @@ namespace RecruitmentPlatform.API.Services
         };
     }
 }
+

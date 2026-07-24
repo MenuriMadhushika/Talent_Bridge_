@@ -13,6 +13,11 @@ namespace RecruitmentPlatform.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
+    /// <summary>
+/// Handles post-interview candidate evaluations, including scoring across technical, 
+/// communication, and culture fit dimensions, updating application pipeline states, 
+/// and retrieving evaluation histories for recruiters and hiring managers.
+/// </summary>
     public class EvaluationsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
