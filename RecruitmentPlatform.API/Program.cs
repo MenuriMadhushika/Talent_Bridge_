@@ -80,7 +80,8 @@ builder.Services.AddScoped<IFeedbackGenerationService, AiFeedbackGenerationServi
 builder.Services.AddHttpClient<ISmsSender, TwilioSmsSender>();
 builder.Services.AddScoped<IEmailSender, SmtpEmailSender>();
 
-// ---------- CORS (Critical for Frontend) ----------
+// ---------- CORS  ----------
+//(Critical for Frontend)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
